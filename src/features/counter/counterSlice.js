@@ -3,13 +3,17 @@ const initialState = {
 };
 
 function counterReducer(state = initialState, action) {
+  console.log("action passed is %s", action.type)
   switch (action.type) {
     case "count/increment":
+      console.log("current state.items length %s", state.items.length);
+      console.log("updating state.items length to %s", state.items.length + 1);
       return {
         ...state,
         items: state.items.concat(state.items.length + 1),
       };
     default:
+      console.log("initial state.items length %s", state.items.length)
       return state;
   }
 }
